@@ -265,14 +265,21 @@ export default function Home() {
       setStatus('connecting')
       setError(null)
 
+      // Get API key from environment
+      const apiKey = process.env.NEXT_PUBLIC_LYZR_API_KEY || 'sk-default-eE6EHcdIhXl61H4mK4YKZFqISTGrruf1'
+
       const response = await fetch('https://voice-sip.studio.lyzr.ai/session/start', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+        },
         body: JSON.stringify({ agentId: AGENT_ID }),
       })
 
       if (!response.ok) {
-        throw new Error(`Failed to start session: ${response.statusText}`)
+        const errorText = await response.text()
+        throw new Error(`Failed to start session: ${response.status} ${response.statusText} - ${errorText}`)
       }
 
       const data = await response.json()
