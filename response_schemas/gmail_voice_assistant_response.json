@@ -1,0 +1,8 @@
+{
+  "agent_name": "Gmail Voice Assistant",
+  "agent_id": "698e4259a96cf8dd37d6a8a0",
+  "description": "Voice-enabled agent that fetches and reads the user's last 10 Gmail emails in brief summary format (sender, subject, key points), answers questions about specific email content, and searches across emails based on user queries",
+  "agent_type": "voice",
+  "accessor": "websocket",
+  "auto_generated": true
+}

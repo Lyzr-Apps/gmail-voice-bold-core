@@ -1,0 +1,27 @@
+{
+  "agents": [
+    {
+      "agent_id": "698e4259a96cf8dd37d6a8a0",
+      "name": "Gmail Voice Assistant",
+      "type": "voice",
+      "accessor": "websocket",
+      "voice_config": {
+        "initiator": "human",
+        "message": "",
+        "language": "English",
+        "voice": "sage"
+      },
+      "tool_configs": [
+        {
+          "tool_name": "gmail",
+          "tool_source": "composio",
+          "action_names": ["GMAIL_FETCH_EMAILS", "GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID"]
+        }
+      ]
+    }
+  ],
+  "workflow": {
+    "type": "single_agent_voice",
+    "pattern": "voice_conversation"
+  }
+}
